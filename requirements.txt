@@ -2,6 +2,5 @@ flask
 line-bot-sdk
 emoji
 wikipedia
-dropbox
 requests
 goslate

@@ -93,8 +93,8 @@ def handle_text_message(event):
                         text='Tap salah satu',
                         actions=[
                             MessageTemplateAction(
-                                label='Tampilkan profil',
-                                text='/myprofile'
+                                label='Mini game',
+                                text='/minigame'
                             ),
                             MessageTemplateAction(
                                 label='Kumpulan quotes',
@@ -163,6 +163,8 @@ def handle_text_message(event):
         reply_txt(help_msg)
 
 # ------------------------------------------------------------------------------- #
+    elif inp == '/minigame':
+        reply_txt("Elisé masih belajar main kak, ditunggu aja ya ^.^")
 
     elif inp == '/myprofile':
 
@@ -215,7 +217,7 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
             recipe_button = TemplateSendMessage(
                 alt_text='Kumpulan resep hidangan',
                 template=ButtonsTemplate(
-                    thumbnail_image_url='https://dl.dropboxusercontent.com/s/srfm9l8ucimj594/hidangan_logo.jpg.png',
+                    thumbnail_image_url='https://example.com/item1.jpg',
                     title='Kumpulan resep hidangan',
                     text= 'Cocok untuk kakak jika sedang lapar dan bingung',
                     actions=[
@@ -363,25 +365,31 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
     elif inp == '/calculator':
         reply_txt(calc_msg)
     
-    elif inp_split[0] == 'hitung':
-        pass
+    elif inp_split[0] == 'hitung' and inp_split[1] == 'dong':
+        hitungan = inp[12:]
+        try:
+            reply_txt("Hasilnya: ", eval(hitungan))
+        except:
+            reply_txt("Formatnya salah kak, coba lagi ya")
 
     elif inp == '/movie':
-        pass
+        reply_txt('Fitur ini menyusul ya kak~ ^.^')
 
     elif inp == '/weather':
-        pass
+        reply_txt('Fitur ini menyusul ya kak~ ^.^')
+
+    elif inp == '/meme':
+        reply_txt('Fitur ini menyusul ya kak~ ^.^')
 
 # ------------------------------------------------------------------------------- #
     elif inp == 'tes' or inp == 'testing' or inp == 'test' or inp == 'tess' or inp == 'tes saja' or inp == 'tes aja':
-        reply_txt('Tes dulu 1.. 2.. 3..')
-
+        reply_txt('Aku udah aktif kak.. 1.. 2.. 3..')
 # --------------------------------------------------------------- #
     elif inp == '/leave':
 
         def kick():
             confirm_template = ConfirmTemplate(text='Keluarkan dari obrolan?', actions=[
-                MessageTemplateAction(label='Iya', text='Ya, keluarkan!'),
+                MessageTemplateAction(label='Iya', text='Pergi sana!'),
                 MessageTemplateAction(label='Tidak', text='Jangan keluarkan!'),])
             template_message = TemplateSendMessage(alt_text='Konfirmasi kick', template=confirm_template)
             return elisebot.reply_message(event.reply_token, template_message)
@@ -395,7 +403,7 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
         else:
             reply_txt('Kakak nggak bisa usir adek :P kakak aja yang pergi ya (^.^)/')
 
-    elif inp == ('Ya, keluarkan!'.lower()): # Bot kick confirmation
+    elif inp == ('Pergi sana!'.lower()): # Bot kick confirmation
         reply_txt('Kakak jahat :( ,nanti undang lagi ya :)')
 
         if isinstance(event.source, SourceGroup):
@@ -420,10 +428,7 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
                         text= '/contactadmin' ),
                     MessageTemplateAction(
                         label='Catatan Admin',
-                        text= '/adminnotes' ),
-                    URITemplateAction(
-                        label='Lihat Source Code',
-                        uri='https://github.com/Diptags/isengbot-ibot')]))
+                        text= '/adminnotes' ),]))
 
         elisebot.reply_message(event.reply_token, about_button)
 
@@ -455,6 +460,9 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
 
         elif inp == "jelek":
             reply_txt("Wah, kakak ngaku kalo kakak jelek, adek salut ^.^")
+
+        elif inp == "elise jelek":
+            reply_txt("Elise lucu kok kak, sekitar 9/10 lah")
     
         elif inp == "referensi anime":
             reply_txt("Coba buka ini: https://anidb.net")

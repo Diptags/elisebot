@@ -5,11 +5,11 @@ help_msg = '''Halo kak, ini ada beberapa keyword khusus yang bisa dipakai:
 /help
 Menampilkan pesan bantuan ini
 
+/minigame
+Menampilkan mini game untuk hiburan
+
 /myprofile
 Menampilkan profil kakak (Hanya dalam chat 1:1)
-
-/sleep
-Menyuruh Elisé beristirahat selama 5 detik
 
 /quotes
 Menampilkan pesan dan kata mutiara yang berguna
@@ -27,9 +27,14 @@ Selain itu, aku juga bisa ngobrol lho
 Tapi kosakataku masih terbatas kak
 '''
 
-calc_msg = '''Elisé juga bisa berhitung lho~
-Caranya tinggal ketik:
+calc_msg = '''Elisé juga bisa berhitung lho~~
+Tapi Elisé baru bisa ini aja kak:
++ (jumlah)
+- (kurang)
+* (kali)
+/ (bagi)
 
+Caranya tinggal ketik:
 hitung <spasi> perhitungan
 
 Contoh:
@@ -72,20 +77,15 @@ about_msg = '''
 E-mail  : rd.pradipta@ui.ac.id
 Line ID : Diptags
 Lokasi  : Depok / Bogor, Indonesia
-Masih kuliah di Fasilkom UI (2017)
-
-Jika ingin membantu mengembangkan bot ini, mohon membaca 
-file CONTRIBUTING.md pada source code.
+Masih kuliah di Fasilkom UI
 '''
 
 admin_note_msg = ''' Halo, para pengguna Elisé (Chat bot)
 Terima kasih banyak telah menggunakan Elisé.
-Elisé ini adalah bot berbasis Python 3.6
 
-Sampai saat ini, Elisé masihlah jauh dari kata sempurna, masih banyak hal yang harus dibenahi.
-Oleh karena itu, admin berpesan, jika menemukan bug atau memiliki kritik / saran,
-admin mohon untuk segera mengisi form yang disediakan, atau PM juga boleh
-Admin sangatlah terbuka menerima masukan dari para pengguna.
+Elisé masihlah jauh dari kata sempurna, masih banyak hal yang harus dibenahi.
+Karena itulah, admin berpesan, jika menemukan bug atau memiliki kritik / saran,
+dimohon untuk segera mengisi form yang disediakan, atau bilang langsung juga boleh kok.
 
 Semoga bot sederhana ini bisa bermanfaat~
 Terima Kasih
