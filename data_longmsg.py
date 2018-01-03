@@ -35,10 +35,10 @@ Tapi Elisé baru bisa ini aja kak:
 / (bagi)
 
 Caranya tinggal ketik:
-hitung <spasi> perhitungan
+hitung <spasi> dong <spasi> perhitungan
 
 Contoh:
-"hitung 4 + 7 * 4 - 2 / 2"
+"hitung dong 4 + 7 * 4 - 2 / 2"
 '''
 
 kerang_msg = '''
@@ -77,15 +77,14 @@ about_msg = '''
 E-mail  : rd.pradipta@ui.ac.id
 Line ID : Diptags
 Lokasi  : Depok / Bogor, Indonesia
-Masih kuliah di Fasilkom UI
+Masih kuliah di Fakultas Ilmu Komputer - UI
 '''
 
-admin_note_msg = ''' Halo, para pengguna Elisé (Chat bot)
-Terima kasih banyak telah menggunakan Elisé.
+admin_note_msg = ''' Terima kasih banyak telah menggunakan Elisé.
 
 Elisé masihlah jauh dari kata sempurna, masih banyak hal yang harus dibenahi.
 Karena itulah, admin berpesan, jika menemukan bug atau memiliki kritik / saran,
-dimohon untuk segera mengisi form yang disediakan, atau bilang langsung juga boleh kok.
+admin mohon sekali untuk segera mengisi form yang disediakan, atau bilang langsung juga boleh kok.
 
 Semoga bot sederhana ini bisa bermanfaat~
 Terima Kasih

@@ -164,7 +164,7 @@ def handle_text_message(event):
 
 # ------------------------------------------------------------------------------- #
     elif inp == '/minigame':
-        reply_txt("Elisé masih belajar main kak, ditunggu aja ya ^.^")
+        reply_txt("Elisé masih belajar bermain kak, ditunggu aja ya ^.^")
 
     elif inp == '/myprofile':
 
@@ -217,7 +217,7 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
             recipe_button = TemplateSendMessage(
                 alt_text='Kumpulan resep hidangan',
                 template=ButtonsTemplate(
-                    thumbnail_image_url='https://example.com/item1.jpg',
+                    thumbnail_image_url='https://dl.dropboxusercontent.com/s/nbgcfzvob2z6xt4/FoodCorner.png',
                     title='Kumpulan resep hidangan',
                     text= 'Cocok untuk kakak jika sedang lapar dan bingung',
                     actions=[
@@ -352,11 +352,12 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
         else:
             reply_txt("Fitur ini cuma bisa lewat PM, kak. Coba lagi ya")
 
-    elif 'elise mau makanan' in inp:            
+    elif inp_split[0:3] == ['elise', 'mau', 'makanan']:           
         if isinstance(event.source, SourceUser):
-            food_var = inp[18:]
+            food_var = inp_split[3]
+
             if food_var in food_dict:
-                reply_txt(food_dict[food_var].read())
+                reply_txt(food_dict[food_var])
             else:
                 reply_txt("Maaf kak belum ada resepnya :(")
         else:
@@ -365,10 +366,10 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
     elif inp == '/calculator':
         reply_txt(calc_msg)
     
-    elif inp_split[0] == 'hitung' and inp_split[1] == 'dong':
-        hitungan = inp[12:]
+    elif inp_split[0:2] == ['hitung','dong']:
+        menghitung = inp[12:]
         try:
-            reply_txt("Hasilnya: ", eval(hitungan))
+            reply_txt("Hasilnya: {}".format(eval(menghitung)))
         except:
             reply_txt("Formatnya salah kak, coba lagi ya")
 
@@ -421,7 +422,7 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
             template=ButtonsTemplate(
                 thumbnail_image_url='https://dl.dropboxusercontent.com/s/xjgb1az7tt7p7h3/admin_logo.png',
                 title='Admin Elisé (Chat bot)',
-                text= 'Pradipta Gitaya (20 Tahun)',
+                text= 'Pradipta Gitaya (21 Tahun)',
                 actions=[
                     MessageTemplateAction(
                         label='Hubungi Admin',
@@ -472,7 +473,7 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
             
     else:
         return "OK"
-
+    
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)

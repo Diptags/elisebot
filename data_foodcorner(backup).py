@@ -1,5 +1,6 @@
 import os
 
+import os
 relative_path = 'files/foodcorner/'
 
 with open(os.path.join(os.path.dirname(__file__),relative_path,\
