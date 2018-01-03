@@ -178,7 +178,7 @@ Status: {}'''.format(profile.display_name,profile.status_message)
             reply_txt("Adek hanya bisa menampilkan via PM")
         
     elif inp == '/quotes':
-        with open('files\\kata_mutiara.txt') as data:
+        with open('kata_mutiara.txt') as data:
             lst_quotes_raw = data.readlines()
         lst_quotes = [x.strip() for x in lst_quotes_raw]
         reply_txt(random.choice(lst_quotes))
@@ -223,7 +223,7 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
                     actions=[
                         MessageTemplateAction(
                             label='Makanan ala anak kos',
-                            text= '/simplerecipe'),
+                            text= '/kosrecipe'),
                         MessageTemplateAction(
                             label='Kue & camilan',
                             text= '/cakerecipe' ),
@@ -235,15 +235,15 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
         else:
             reply_txt("Fitur ini cuma bisa lewat PM, kak. Coba lagi ya")
 
-    elif inp == '/simplerecipe':
+    elif inp == '/kosrecipe':
         if isinstance(event.source, SourceUser):
             carousel_template_message = TemplateSendMessage(
-                alt_text='Resep ala Anak Kos',
+                alt_text='Resep Ala anak kos',
                 template=CarouselTemplate(
                     columns=[
                         CarouselColumn(
                             thumbnail_image_url='https://dl.dropboxusercontent.com/s/srfm9l8ucimj594/hidangan_logo.jpg.png',
-                            title='Resep ala \anak kos 1',
+                            title='Resep Ala anak kos 1',
                             text='Tap salah satu di bawah',
                             actions=[
                                 MessageTemplateAction(
@@ -257,19 +257,19 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
                                     text='elise mau makanan a3')]),
                         CarouselColumn(
                             thumbnail_image_url='https://dl.dropboxusercontent.com/s/srfm9l8ucimj594/hidangan_logo.jpg.png',
-                            title='Resep ala anak kos 2',
+                            title='Resep Ala anak kos 2',
                             text='Tap salah satu di bawah',
                             actions=[
                                 MessageTemplateAction(
-                                    label='Roti telur 1/2 matang',
+                                    label='Roti telur lunak',
                                     text='elise mau makanan a4'),
                                 MessageTemplateAction(
-                                    label='Nasi goreng spesial',
+                                    label='Nasi goreng',
                                     text='elise mau makanan a5'),
                                 MessageTemplateAction(
-                                    label='Steak tempe',
+                                    label='Roti maryam/canai',
                                     text='elise mau makanan a6')])]))
-
+                                    
             elisebot.reply_message(event.reply_token, carousel_template_message)
         else:
             reply_txt("Fitur ini cuma bisa lewat PM, kak. Coba lagi ya")
@@ -372,7 +372,7 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
         except:
             reply_txt("Formatnya salah kak, coba lagi ya")
 
-    elif inp == '/movie':
+    elif inp == '/movies':
         reply_txt('Fitur ini menyusul ya kak~ ^.^')
 
     elif inp == '/weather':
