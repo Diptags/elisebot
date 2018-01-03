@@ -12,8 +12,8 @@ import json
 import goslate
 import requests
 
-from data_foodcorner import * # Import file eksternal
 from data_longmsg import * # Import file eksternal
+from time import sleep
 from flask import Flask, request, abort
 from linebot import (LineBotApi, WebhookHandler)
 from linebot.exceptions import (InvalidSignatureError)
@@ -46,7 +46,7 @@ elisebot = LineBotApi(channel_access_token)
 handler = WebhookHandler(channel_secret)
 
 @app.route("/callback", methods=['POST'])
-def callback(): # Webhook callback function
+def callback(): # Webhool callback function
 
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
@@ -79,7 +79,7 @@ def handle_text_message(event):
 
 # ---------------------- Program Execution ---------------------- #
 
-    keyword = ['/newprofile','/bantuan','/help','/keyword','/leave','/myprofile','/quotes','/weather','/translate','/movie','/admin','/adminnotes','/contactadmin','/lifehacks','/foodcorner','/weather']
+    keyword = ['/newprofile','/bantuan','/help','/keyword','/leave','/myprofile','/sleep','/quotes','/weather','/translate','/movie','/admin','/adminnotes','/contactadmin','/lifehacks','/foodrecipe','/weather']
 
     if inp == '/help':
         carousel_template_message = TemplateSendMessage(
@@ -101,7 +101,7 @@ def handle_text_message(event):
                             ),
                             MessageTemplateAction(
                                 label='Resep hidangan',
-                                text='/foodcorner')]),
+                                text='/foodrecipe')]),
 
                     CarouselColumn(
                         thumbnail_image_url='https://example.com/item2.jpg',
@@ -170,6 +170,7 @@ Nama: {}
 Status: {}'''.format(profile.display_name,profile.status_message)
 
         if isinstance(event.source, SourceUser):
+            reply_img(profile.picture_url)
             reply_txt(myprofile_msg)
         else:
             reply_txt("Adek hanya bisa menampilkan via PM")
@@ -236,33 +237,33 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
-                        thumbnail_image_url='https://dl.dropboxusercontent.com/s/srfm9l8ucimj594/hidangan_logo.jpg.png',
+                        thumbnail_image_url='https://example.com/item1.jpg',
                         title='Resep ala anak kos 1',
                         text='Tap salah satu di bawah',
                         actions=[
                             MessageTemplateAction(
-                                label='Omelet telur',
-                                text='elise mau makanan a1'),
+                                label='makanan1',
+                                text='/myprofile'),
                             MessageTemplateAction(
-                                label='Sup sayur',
-                                text='elise mau makanan a2'),
+                                label='makanan2',
+                                text='/quotes'),
                             MessageTemplateAction(
-                                label='Pangsit sosis telur',
-                                text='elise mau makanan a3')]),
+                                label='makanan3',
+                                text='/foodrecipe')]),
                     CarouselColumn(
-                        thumbnail_image_url='https://dl.dropboxusercontent.com/s/srfm9l8ucimj594/hidangan_logo.jpg.png',
+                        thumbnail_image_url='https://example.com/item2.jpg',
                         title='Resep ala anak kos 2',
                         text='Tap salah satu di bawah',
                         actions=[
                             MessageTemplateAction(
-                                label='Roti telur daging',
-                                text='elise mau makanan a4'),
+                                label='makanan4',
+                                text='/calculator'),
                             MessageTemplateAction(
-                                label='Nasi goreng spesial',
-                                text='elise mau makanan a5'),
+                                label='makanan5',
+                                text='/weather'),
                             MessageTemplateAction(
-                                label='Steak tempe',
-                                text='elise mau makanan a6')])]))
+                                label='makanan6',
+                                text='/translate')])]))
 
         elisebot.reply_message(event.reply_token, carousel_template_message)
 
@@ -273,33 +274,33 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
-                        thumbnail_image_url='https://dl.dropboxusercontent.com/s/srfm9l8ucimj594/hidangan_logo.jpg.png',
+                        thumbnail_image_url='https://example.com/item1.jpg',
                         title='Resep kue & camilan 1',
                         text='Tap salah satu di bawah',
                         actions=[
                             MessageTemplateAction(
-                                label='Oreo cake',
-                                text='elise mau makanan b1'),
+                                label='makanan1',
+                                text='/myprofile'),
                             MessageTemplateAction(
-                                label='Nugget pisang',
-                                text='elise mau makanan b2'),
+                                label='makanan2',
+                                text='/quotes'),
                             MessageTemplateAction(
-                                label='Bolu kukus',
-                                text='elise mau makanan b3')]),
+                                label='makanan3',
+                                text='/foodrecipe')]),
                     CarouselColumn(
-                        thumbnail_image_url='https://dl.dropboxusercontent.com/s/srfm9l8ucimj594/hidangan_logo.jpg.png',
+                        thumbnail_image_url='https://example.com/item2.jpg',
                         title='Resep kue & camilan 2',
                         text='Tap salah satu di bawah',
                         actions=[
                             MessageTemplateAction(
-                                label='Rainbow cake',
-                                text='elise mau makanan b4'),
+                                label='makanan4',
+                                text='/calculator'),
                             MessageTemplateAction(
-                                label='Bakwan jamur',
-                                text='elise mau makanan b5'),
+                                label='makanan5',
+                                text='/weather'),
                             MessageTemplateAction(
-                                label='Roti maryam/canai',
-                                text='elise mau makanan b6')])]))
+                                label='makanan6',
+                                text='/translate')])]))
                                 
         elisebot.reply_message(event.reply_token, carousel_template_message)
 
@@ -310,42 +311,35 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
-                        thumbnail_image_url='https://dl.dropboxusercontent.com/s/srfm9l8ucimj594/hidangan_logo.jpg.png',
+                        thumbnail_image_url='https://example.com/item1.jpg',
                         title='Resep lain 1',
                         text='Tap salah satu di bawah',
                         actions=[
                             MessageTemplateAction(
                                 label='makanan1',
-                                text='elise mau makanan c1'),
+                                text='/myprofile'),
                             MessageTemplateAction(
                                 label='makanan2',
-                                text='elise mau makanan c2'),
+                                text='/quotes'),
                             MessageTemplateAction(
                                 label='makanan3',
-                                text='elise mau makanan c3')]),
+                                text='/foodrecipe')]),
                     CarouselColumn(
-                        thumbnail_image_url='https://dl.dropboxusercontent.com/s/srfm9l8ucimj594/hidangan_logo.jpg.png',
+                        thumbnail_image_url='https://example.com/item2.jpg',
                         title='Resep lain 2',
                         text='Tap salah satu di bawah',
                         actions=[
                             MessageTemplateAction(
                                 label='makanan4',
-                                text='elise mau makanan c4'),
+                                text='/calculator'),
                             MessageTemplateAction(
                                 label='makanan5',
-                                text='elise mau makanan c5'),
+                                text='/weather'),
                             MessageTemplateAction(
                                 label='makanan6',
-                                text='elise mau makanan c6')])]))
+                                text='/translate')])]))
                                 
         elisebot.reply_message(event.reply_token, carousel_template_message)
-    
-    elif 'elise mau makanan' in inp :
-        food_var = inp[18:]
-            if food_var in food_dict:
-                reply_txt(food_dict[food_var].read())
-            else:
-                reply_txt("Maaf kak belum ada resepnya :(")
 # ------------------------------------------------------------------------------- #
     elif inp == '/calculator':
         reply_txt(calc_msg)
@@ -364,6 +358,11 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
     elif inp == 'tes' or inp == 'testing' or inp == 'test' or inp == 'tess' or inp == 'tes saja' or inp == 'tes aja':
         reply_txt('Tes tes 1.. 2.. 3..')
     
+    elif inp == '/sleep':
+        reply_txt("Aku mau tidur dulu, tunggu 5 detik")
+        sleep(5)
+        reply_txt("Aku sudah bangun lagi~")
+
 # --------------------------------------------------------------- #
     elif inp == '/leave':
 
