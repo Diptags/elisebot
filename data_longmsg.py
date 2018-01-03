@@ -72,7 +72,7 @@ about_msg = '''
 E-mail  : rd.pradipta@ui.ac.id
 Line ID : Diptags
 Lokasi  : Depok / Bogor, Indonesia
-Bagian dari TARUNG 2017 (Fasilkom UI 2017)
+Masih kuliah di Fasilkom UI (2017)
 
 Jika ingin membantu mengembangkan bot ini, mohon membaca 
 file CONTRIBUTING.md pada source code.
@@ -80,10 +80,12 @@ file CONTRIBUTING.md pada source code.
 
 admin_note_msg = ''' Halo, para pengguna Elisé (Chat bot)
 Terima kasih banyak telah menggunakan Elisé.
+Elisé ini adalah bot berbasis Python 3.6
 
 Sampai saat ini, Elisé masihlah jauh dari kata sempurna, masih banyak hal yang harus dibenahi.
-Oleh karena itu, admin berpesan kepada para pengguna, jika menemukan bug atau memiliki kritik / saran, segeralah beritahu admin.
-Admin sangatlah terbuka menerima masukan dari para pengguna, terlebih jika Anda ingin berkontribusi, admin akan sangat senang
+Oleh karena itu, admin berpesan, jika menemukan bug atau memiliki kritik / saran,
+admin mohon untuk segera mengisi form yang disediakan, atau PM juga boleh
+Admin sangatlah terbuka menerima masukan dari para pengguna.
 
 Semoga bot sederhana ini bisa bermanfaat~
 Terima Kasih
