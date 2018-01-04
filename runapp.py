@@ -1,6 +1,6 @@
 # Elisé (Chat Bot)
 # Created by: Pradipta Gitaya (Diptags)
-# Dipsi Lala Po Studion (Padahal saya sendiri yang membuat)
+# Dipsi Lala Po Studio (Padahal saya sendiri yang membuat)
 
 # $ Python --version 
 # $ Python 3.6.4
@@ -12,8 +12,9 @@ import json
 import goslate
 import requests
 
-from data_foodcorner import * # Import file eksternal
-from data_longmsg import * # Import file eksternal
+from files.data_minigame import * # Import file eksternal
+from files.data_foodcorner import * # Import file eksternal
+from files.data_longmsg import * # Import file eksternal
 from time import sleep
 from flask import Flask, request, abort
 from linebot import (LineBotApi, WebhookHandler)
@@ -178,7 +179,10 @@ Status: {}'''.format(profile.display_name,profile.status_message)
             reply_txt("Adek hanya bisa menampilkan via PM")
         
     elif inp == '/quotes':
-        with open('kata_mutiara.txt') as data:
+        file_path = 'files/'
+
+        with open(os.path.join(os.path.dirname(__file__),file_path,\
+            'kata_mutiara.txt'),'r') as data:
             lst_quotes_raw = data.readlines()
         lst_quotes = [x.strip() for x in lst_quotes_raw]
         reply_txt(random.choice(lst_quotes))
@@ -325,13 +329,13 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
                             text='Tap salah satu di bawah',
                             actions=[
                                 MessageTemplateAction(
-                                    label='makanan1',
+                                    label='Mango thai/Jus Mangga',
                                     text='elise mau makanan c1'),
                                 MessageTemplateAction(
-                                    label='makanan2',
+                                    label='Macaroni Schotel',
                                     text='elise mau makanan c2'),
                                 MessageTemplateAction(
-                                    label='makanan3',
+                                    label='Seblak pedas',
                                     text='elise mau makanan c3')]),
                         CarouselColumn(
                             thumbnail_image_url='https://dl.dropboxusercontent.com/s/srfm9l8ucimj594/hidangan_logo.jpg.png',
@@ -339,13 +343,13 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
                             text='Tap salah satu di bawah',
                             actions=[
                                 MessageTemplateAction(
-                                    label='makanan4',
+                                    label='Mocktail biru merah',
                                     text='elise mau makanan c4'),
                                 MessageTemplateAction(
-                                    label='makanan5',
+                                    label='Teh hijau/matcha latte',
                                     text='elise mau makanan c5'),
                                 MessageTemplateAction(
-                                    label='makanan6',
+                                    label='Sate taichan',
                                     text='elise mau makanan c6')])]))
                                     
             elisebot.reply_message(event.reply_token, carousel_template_message)
@@ -389,7 +393,7 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
     elif inp == '/leave':
 
         def kick():
-            confirm_template = ConfirmTemplate(text='Keluarkan dari obrolan?', actions=[
+            confirm_template = ConfirmTemplate(text='Keluarkan Elisé dari obrolan?', actions=[
                 MessageTemplateAction(label='Iya', text='Pergi sana!'),
                 MessageTemplateAction(label='Tidak', text='Jangan keluarkan!'),])
             template_message = TemplateSendMessage(alt_text='Konfirmasi kick', template=confirm_template)

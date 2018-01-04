@@ -1,6 +1,6 @@
 import os
 
-relative_path = 'files/foodcorner/'
+relative_path = 'foodcorner_recipedata/' # Adds relative path for recipe data
 
 with open(os.path.join(os.path.dirname(__file__),relative_path,\
     'A1.txt'),'r') as data_a1:
