@@ -317,7 +317,7 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
         else:
             reply_txt("Fitur ini cuma bisa lewat PM, kak. Coba lagi ya")
 
-    elif inp == '/otherrecipe':            
+    elif inp == '/otherrecipe':
         if isinstance(event.source, SourceUser):
             carousel_template_message = TemplateSendMessage(
                 alt_text='Hidangan lainnya',
@@ -325,11 +325,11 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
                     columns=[
                         CarouselColumn(
                             thumbnail_image_url='https://dl.dropboxusercontent.com/s/srfm9l8ucimj594/hidangan_logo.jpg.png',
-                            title='Resep lain 1',
+                            title='Resep lainnya 1',
                             text='Tap salah satu di bawah',
                             actions=[
                                 MessageTemplateAction(
-                                    label='Mango thai/Jus Mangga',
+                                    label='Mango thai/juice',
                                     text='elise mau makanan c1'),
                                 MessageTemplateAction(
                                     label='Macaroni Schotel',
@@ -339,14 +339,14 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
                                     text='elise mau makanan c3')]),
                         CarouselColumn(
                             thumbnail_image_url='https://dl.dropboxusercontent.com/s/srfm9l8ucimj594/hidangan_logo.jpg.png',
-                            title='Resep lain 2',
+                            title='Resep lainnya 2',
                             text='Tap salah satu di bawah',
                             actions=[
                                 MessageTemplateAction(
-                                    label='Mocktail biru merah',
+                                    label='Mocktail blue & red',
                                     text='elise mau makanan c4'),
                                 MessageTemplateAction(
-                                    label='Teh hijau/matcha latte',
+                                    label='Matcha latte',
                                     text='elise mau makanan c5'),
                                 MessageTemplateAction(
                                     label='Sate taichan',
