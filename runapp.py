@@ -472,6 +472,9 @@ terjemahkan <spasi> bahasa tujuan <spasi> Kalimat yang mau diterjemahkan
     
         elif inp == "referensi anime":
             reply_txt("Coba buka ini: https://anidb.net")
+        
+        elif inp == '...':
+            reply_txt("krik...krik...krik...")
 
         else:
             return "OK"
