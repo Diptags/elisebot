@@ -12,6 +12,7 @@ import json
 import goslate
 import requests
 
+from files.data_minigame import * # Import file eksternal
 from files.data_foodcorner import * # Import file eksternal
 from files.data_longmsg import * # Import file eksternal
 from time import sleep
