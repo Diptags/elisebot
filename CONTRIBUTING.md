@@ -1,5 +1,7 @@
 # Berkontribusi dalam Elisé (LINE Chat Bot)
 
+Jangan dianggap serius dulu, masih iseng inimah :v
+--------------------------------------------------
 Elisé  memang masih sangatlah jauh dari kata sempurna, untuk itulah admin memohon bantuan dari para pengguna untuk memberitahu admin jika menemukan bug, atau ada kritik/saran yang tentunya bisa berguna untuk pengembangan dari bot ini, admin akan sangat terbuka menerima masukan dari para pengguna.
 
 Terlebih jika pengguna ingin berkontribusi dalam mengembangkan Elisé, admin akan sangat senang.
